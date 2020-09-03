@@ -4,6 +4,31 @@ Tags:
 * ''ADDED''	... certificate newly added in this release
 * ''REMOVED''  ... certificate removed in this release
 * TRUSTED	... certificate included in truststore
+
+-------------------
+'''BKUCertificates-1.18 (mocca-1.4.3)'''
+-------------------
+Entrust G2 CA (''ADDED'', TRUSTED)
+* Serial Number: 4a538c28
+* Issuer: CN = Entrust Root Certification Authority - G2
+* Subject: CN = Entrust Root Certification Authority - G2
+* Not Before: ‎‎Dienstag, ‎7. ‎Juli ‎2009 19:25:54
+* Not After: ‎Samstag, ‎7. ‎Dezember ‎2030 19:55:54
+
+Entrust L1K (''ADDED'')
+* Serial Number: 0ee94cc30000000051d37785
+* Issuer: CN = Entrust Root Certification Authority - G2
+* Subject: CN = Entrust Certification Authoritiy - L1K
+* Not Before: ‎Montag, ‎5. ‎Oktober ‎2015 21:13:56
+* Not After: ‎Donnerstag, ‎5. ‎Dezember ‎2030 21:43:56
+
+Entrust L1M (''ADDED'')
+* Serial Number: 61a1e7d20000000051d366a6
+* Issuer: CN = Entrust Root Certification Authority - G2
+* Subject: CN = Entrust Certification Authoritiy - L1M
+* Not Before: Montag, ‎15. ‎Dezember ‎2014 17:25:03
+* Not After: ‎‎Dienstag, ‎15. ‎Oktober ‎2030 17:55:03
+
 -------------------
 '''BKUCertificates-1.16 (mocca-1.4.1)'''
 -------------------

@@ -29,4 +29,5 @@ public class Constants {
 	public static final String VERSION_FILE = "Release.txt";
 	public static final String PATH_TO_VERSION_FILE = WEBSTART_URL + MOCCA_STR + VERSION_FILE; 
 
+	
 }
