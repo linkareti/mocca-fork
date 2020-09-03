@@ -3,10 +3,10 @@
   <parent>
     <artifactId>mocca</artifactId>
     <groupId>at.gv.egiz</groupId>
-    <version>1.4.3-SNAPSHOT</version>
+    <version>1.4.3</version>
   </parent>
   <artifactId>BKUFonts</artifactId>
-  <version>1.4-SNAPSHOT</version>
+  <version>1.4</version>
   <name>BKU Fonts</name>
   <description>
     <!--
