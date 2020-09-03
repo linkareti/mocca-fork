@@ -70,15 +70,20 @@ public class MoccaUpdater  {
 			return; 
 		}
 		
-		gatherOnlineMoccaVersion();
-		boolean isOnlineNewer = isOnlineVersionNewer();
-		if (isOnlineNewer) {
-			notifyUserNewerVersionOnline();
+		try {
+			gatherOnlineMoccaVersion();
+			boolean isOnlineNewer = isOnlineVersionNewer();
+			if (isOnlineNewer) {
+				notifyUserNewerVersionOnline();
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			log.error(e.getMessage());
 		}
 	}
 	
 	
-	private void gatherOnlineMoccaVersion() {
+	private void gatherOnlineMoccaVersion() throws Exception {
 		try {
 			log.info("Requesting Mocca Online Version");
 			URL url = new URL(Constants.VERSION_FILE_URL);
@@ -96,6 +101,7 @@ public class MoccaUpdater  {
 			log.info("Online Mocca Version: " + result.toString());
 		} catch (IOException e) {
 			log.error("Error when gathering Mocca Online Version " + e.getMessage());
+			throw new Exception("Error gathering Mocca Version number from Website ");
 		}
 
 	}
@@ -113,6 +119,7 @@ public class MoccaUpdater  {
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
+			System.err.print(e.getMessage());
 			log.error(e.getMessage());
 		}
 		
