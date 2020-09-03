@@ -81,8 +81,8 @@ public class MoccaUpdater  {
 	private void gatherOnlineMoccaVersion() {
 		try {
 			log.info("Requesting Mocca Online Version");
-			URL url = new URL(Constants.PATH_TO_VERSION_FILE);
-			log.debug("Going to GET mocca Version from: " + Constants.PATH_TO_VERSION_FILE);
+			URL url = new URL(Constants.VERSION_FILE_URL);
+			log.debug("Going to GET mocca Version from: " + Constants.VERSION_FILE_URL);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));

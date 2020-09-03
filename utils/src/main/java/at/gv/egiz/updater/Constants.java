@@ -24,10 +24,13 @@ package at.gv.egiz.updater;
 
 public class Constants {
 	
-	public static final String WEBSTART_URL = "https://webstart.buergerkarte.at/";
-	public static final String MOCCA_STR    = "mocca/";
-	public static final String VERSION_FILE = "Release.txt";
-	public static final String PATH_TO_VERSION_FILE = WEBSTART_URL + MOCCA_STR + VERSION_FILE; 
+	//public static final String WEBSTART_URL = "https://webstart.buergerkarte.at/";
+	//public static final String MOCCA_STR    = "mocca/";
+	//public static final String VERSION_FILE = "Release.txt";
+	//public static final String PATH_TO_VERSION_FILE = WEBSTART_URL + MOCCA_STR + VERSION_FILE; 
+	public static final String DOWNLOAD_URL = "https://technology.a-sit.at/en/mocca/";
+	public static final String VERSION_FILE_URL = "https://updates.a-sit.at/mocca/Release.txt";
+	
 
 	
 }

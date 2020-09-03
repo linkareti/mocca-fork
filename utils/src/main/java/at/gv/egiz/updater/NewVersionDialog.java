@@ -165,7 +165,7 @@ public class NewVersionDialog extends JDialog {
 	private void openLink() {
 		if (Desktop.isDesktopSupported()) {
 		    try {
-				Desktop.getDesktop().browse(new URI(Constants.WEBSTART_URL+Constants.MOCCA_STR));
+				Desktop.getDesktop().browse(new URI(Constants.DOWNLOAD_URL));
 			} catch (IOException | URISyntaxException e) {
 				log.error(e.getMessage());
 			}
