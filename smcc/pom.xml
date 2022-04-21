@@ -7,6 +7,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>smcc</artifactId>
   <name>smcc</name>
+  <version>1.4.3.linkare.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   <description>Smart card communication</description>
   <build>
@@ -45,4 +46,16 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <distributionManagement>
+      <repository>
+          <id>linkare-thirdparty</id>
+          <name>Linkare Releases Repository</name>
+          <url>https://nexus.linkare.com/content/repositories/thirdparty</url>
+      </repository>
+      <snapshotRepository>
+          <id>linkare-snap-repo</id>
+          <name>Linkare Snapshots Repository</name>
+          <url>https://nexus.linkare.com/content/repositories/snapshots</url>
+      </snapshotRepository>
+  </distributionManagement>
 </project>
