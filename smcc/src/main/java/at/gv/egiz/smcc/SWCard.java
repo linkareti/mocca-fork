@@ -47,7 +47,9 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
+import java.util.Collections;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Locale;
 
 import javax.smartcardio.Card;
@@ -306,6 +308,12 @@ public class SWCard implements SignatureCard {
     }
 
     
+  }
+  
+  @Override
+  public List<byte[]> getCertificates(KeyboxName keyboxName, PINGUI pinGUI)
+          throws SignatureCardException, InterruptedException {
+    return Collections.singletonList(getCertificate(keyboxName, pinGUI));
   }
 
   public byte[] getInfobox(String infobox, PINGUI provider, String domainId) throws SignatureCardException {

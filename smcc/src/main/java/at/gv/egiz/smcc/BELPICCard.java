@@ -31,6 +31,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import javax.smartcardio.CardChannel;
 import javax.smartcardio.CardException;
@@ -59,6 +62,9 @@ public class BELPICCard extends AbstractSignatureCard implements SignatureCard {
 
     public static final byte[] SIGN_CERT = new byte[] { (byte) 0x50,
             (byte) 0x39 };
+
+    public static final byte[] SIGN_CA_CERT = new byte[] { (byte) 0x50,
+            (byte) 0x3A };
 
 //    public static final byte MSE_SET_ALGO_REF = (byte) 0x02;
 
@@ -107,6 +113,45 @@ public class BELPICCard extends AbstractSignatureCard implements SignatureCard {
       throw new SignatureCardException(e);
     }
 
+  }
+  
+  public byte[] getCACertificate(KeyboxName keyboxName, PINGUI provider)
+      throws SignatureCardException {
+
+    if (keyboxName != KeyboxName.SECURE_SIGNATURE_KEYPAIR) {
+      throw new IllegalArgumentException("Keybox " + keyboxName
+          + " not supported");
+    }
+
+    try {
+      CardChannel channel = getCardChannel();
+      // SELECT MF
+      execSELECT_FID(channel, MF);
+      // SELECT application
+      execSELECT_FID(channel, DF_BELPIC);
+      // SELECT file
+      execSELECT_FID(channel, SIGN_CA_CERT);
+      // READ BINARY
+      byte[] certificate = ISO7816Utils.readTransparentFileTLV(channel, -1, (byte) 0x30);
+      if (certificate == null) {
+        throw new NotActivatedException();
+      }
+      return certificate;
+    } catch (FileNotFoundException e) {
+      throw new NotActivatedException();
+    } catch (CardException e) {
+      log.info("Failed to get certificate.", e);
+      throw new SignatureCardException(e);
+    }
+
+  }
+  
+  @Override
+  @Exclusive
+  public List<byte[]> getCertificates(KeyboxName keyboxName, PINGUI pinGUI) throws SignatureCardException, InterruptedException {
+    byte[][] certs = new byte[][] { getCertificate(keyboxName, pinGUI), getCACertificate(keyboxName, pinGUI) };
+
+    return Collections.unmodifiableList(Arrays.asList(certs));
   }
 
   @Override

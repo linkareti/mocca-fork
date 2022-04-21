@@ -28,6 +28,7 @@ package at.gv.egiz.smcc;
 import at.gv.egiz.smcc.pin.gui.PINGUI;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Locale;
 
 import javax.smartcardio.Card;
@@ -88,6 +89,9 @@ public interface SignatureCard {
   public String getTerminalName();
   
   public byte[] getCertificate(KeyboxName keyboxName, PINGUI pinGUI)
+      throws SignatureCardException, InterruptedException;
+  
+  public List<byte[]> getCertificates(KeyboxName keyboxName, PINGUI pinGUI)
       throws SignatureCardException, InterruptedException;
   
   public void disconnect(boolean reset);

@@ -24,8 +24,11 @@
 
 package at.gv.egiz.smcc;
 
+import at.gv.egiz.smcc.pin.gui.PINGUI;
 import at.gv.egiz.smcc.reader.CardReader;
 import at.gv.egiz.smcc.reader.ReaderFactory;
+import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 
 import javax.smartcardio.Card;
@@ -134,5 +137,12 @@ public abstract class AbstractSignatureCard implements SignatureCard {
     void setStatus(int status) {
     }
 
+  }
+
+  @Override
+  @Exclusive
+  public List<byte[]> getCertificates(KeyboxName keyboxName, PINGUI pinGUI)
+          throws SignatureCardException, InterruptedException {
+    return Collections.singletonList(getCertificate(keyboxName, pinGUI));
   }
 }
