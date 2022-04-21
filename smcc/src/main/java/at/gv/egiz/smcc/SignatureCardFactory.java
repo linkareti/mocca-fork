@@ -1101,6 +1101,46 @@ public class SignatureCardFactory {
 				"at.gv.egiz.smcc.PtEidCard"));
 
 		supportedCards.add(new SupportedCard(
+				//ATR: (3b:ff:96:00:00:81:31:80:43:80:31:80:65:b0:85:03:00:ef:12:0f:ff:82:90:00:67)
+				new byte[] { (byte) 0x3b, (byte) 0xff, (byte) 0x96,
+						(byte) 0x00, (byte) 0x00, (byte) 0x81, (byte) 0x31,
+						(byte) 0x80, (byte) 0x43, (byte) 0x80, (byte) 0x31,
+						(byte) 0x80, (byte) 0x65, (byte) 0xb0, (byte) 0x85,
+						(byte) 0x03, (byte) 0x00, (byte) 0xef, (byte) 0x12,
+                                                (byte) 0x0f, (byte) 0xff, (byte) 0x82, (byte) 0x90,
+                                                (byte) 0x00, (byte) 0x67},
+				// mask
+				// (ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff)
+				new byte[] { (byte) 0xff, (byte) 0xff, (byte) 0xff,
+						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
+						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
+						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
+						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
+                                                (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
+                                                (byte) 0xff, (byte) 0xff },
+				"at.gv.egiz.smcc.PtEidCard"));
+
+		supportedCards.add(new SupportedCard(
+				//ATR: (3b:ff:96:00:00:81:31:fe:43:80:31:80:65:b0:85:04:01:20:12:0f:ff:82:90:00:d0)
+				new byte[] { (byte) 0x3b, (byte) 0xff, (byte) 0x96,
+						(byte) 0x00, (byte) 0x00, (byte) 0x81, (byte) 0x31,
+						(byte) 0xfe, (byte) 0x43, (byte) 0x80, (byte) 0x31,
+						(byte) 0x80, (byte) 0x65, (byte) 0xb0, (byte) 0x85,
+						(byte) 0x04, (byte) 0x01, (byte) 0x20, (byte) 0x12,
+                                                (byte) 0x0f, (byte) 0xff, (byte) 0x82, (byte) 0x90,
+                                                (byte) 0x00, (byte) 0xd0},
+				// mask
+				// (ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff)
+				new byte[] { (byte) 0xff, (byte) 0xff, (byte) 0xff,
+						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
+						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
+						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
+						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
+                                                (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
+                                                (byte) 0xff, (byte) 0xff },
+				"at.gv.egiz.smcc.PtEidCard"));
+
+		supportedCards.add(new SupportedCard(
 				// SwissSign ATR
 				// 3b:fa:18:00:02:c1:0a:31:fe:58:4b:53:77:69:73:73:53:69:67:6e:89
 				new byte[] { (byte) 0x3b, (byte) 0xfa, (byte) 0x18,
