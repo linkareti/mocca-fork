@@ -30,6 +30,8 @@ import at.gv.egiz.smcc.reader.ReaderFactory;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
 
 import javax.smartcardio.Card;
 import javax.smartcardio.CardChannel;
@@ -137,6 +139,18 @@ public abstract class AbstractSignatureCard implements SignatureCard {
     void setStatus(int status) {
     }
 
+  }
+
+  @Override
+  public Map<CardDataSet, Map<String, ?>> getCardData(
+          KeyboxName keyboxName, PINGUI pinGUI, CardDataSet... datasets)
+          throws SignatureCardException, InterruptedException {
+    throw new IllegalArgumentException("Retrieving card data not supported.");
+  }
+
+  @Override
+  public Set<CardDataSet> getSupportedCardDataSets() {
+    return Collections.emptySet();
   }
 
   @Override

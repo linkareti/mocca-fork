@@ -51,6 +51,8 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
 
 import javax.smartcardio.Card;
 import javax.smartcardio.CardTerminal;
@@ -486,5 +488,17 @@ public class SWCard implements SignatureCard {
 
   @Override
   public void reset() throws SignatureCardException {
+  }
+
+  @Override
+  public Map<CardDataSet, Map<String, ?>> getCardData(
+          KeyboxName keyboxName, PINGUI pinGUI, CardDataSet... datasets)
+          throws SignatureCardException, InterruptedException {
+    throw new IllegalArgumentException("Retrieving card data not supported.");
+  }
+
+  @Override
+  public Set<CardDataSet> getSupportedCardDataSets() {
+    return Collections.emptySet();
   }
 }
