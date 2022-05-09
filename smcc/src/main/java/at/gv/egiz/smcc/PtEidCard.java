@@ -241,19 +241,27 @@ public class PtEidCard extends AbstractSignatureCard {
       PINGUI pinGUI, String alg) throws SignatureCardException,
       InterruptedException, IOException {
     
-    if (!"http://www.w3.org/2000/09/xmldsig#rsa-sha1".equals(alg)) {
+    byte AlgID;
+    String mdAlg;
+    if ("http://www.w3.org/2000/09/xmldsig#rsa-sha1".equals(alg)) {
+      AlgID = (byte) 0x12;
+      mdAlg = "SHA-1";
+    } else if ("http://www.w3.org/2001/04/xmldsig-more#rsa-sha256".equals(alg)) {
+      AlgID = (byte) 0x42;
+      mdAlg = "SHA-256";
+    } else {
       throw new SignatureCardException("Card does not support algorithm " + alg + ".");
     }
 
     final byte[] dst = { 
         (byte) 0x80, // algorithm reference
-          (byte) 0x01, (byte) 0x12, // RSASSA-PKCS1-v1.5 using SHA1
+          (byte) 0x01, AlgID, // RSASSA-PKCS1-v1.5 using SHA1
         (byte) 0x84, // private key reference
           (byte) 0x01, (byte) 0x01};
 
     MessageDigest md;
     try {
-      md = MessageDigest.getInstance("SHA-1");
+      md = MessageDigest.getInstance(mdAlg);
     } catch (NoSuchAlgorithmException e) {
       log.error("Failed to get MessageDigest.", e);
       throw new SignatureCardException(e);
