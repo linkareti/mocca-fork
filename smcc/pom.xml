@@ -7,7 +7,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>smcc</artifactId>
   <name>smcc</name>
-  <version>1.4.3.linkare.1-SNAPSHOT</version>
+  <version>1.4.3.linkare.1</version>
   <packaging>jar</packaging>
   <description>Smart card communication</description>
   <build>
