@@ -19,8 +19,6 @@ import javax.smartcardio.CardTerminals;
 import org.apache.commons.codec.binary.Hex;
 
 import at.gv.egiz.smcc.pin.gui.PINGUI;
-import at.gv.egiz.smcc.pteidv2.PtEidV2CitizenData;
-import at.gv.egiz.smcc.pteidv2.PtEidV2Pic;
 import at.gv.egiz.smcc.util.SMCCHelper;
 import at.gv.egiz.smcc.util.SmartCardIO;
 import sun.security.util.ECUtil;
@@ -78,29 +76,16 @@ public class ConnectCard {
             final Map<CardDataSet, Map<String, ?>> cardData = signatureCard.getCardData(null, null, CardDataSet.HOLDER_DATA, CardDataSet.HOLDER_PICTURE, CardDataSet.HOLDER_EXTRA);
             final Map<String, ?> holderData = cardData.get(CardDataSet.HOLDER_DATA);
             System.out.println(holderData);
-//            System.out.println(Hex.encodeHexString((byte[]) holderData.get("raw")));
-
-            final PtEidV2CitizenData citizenData = new PtEidV2CitizenData();
-            citizenData.decode(new ByteArrayInputStream((byte[]) holderData.get("raw")));
-//            System.out.println(citizenData);
-            System.out.println(citizenData.getFirstname());
-            System.out.println(citizenData.getName());
             System.out.println();
 
             final Map<String, ?> holderPicture = cardData.get(CardDataSet.HOLDER_PICTURE);
             System.out.println(holderPicture);
-//            System.out.println(Hex.encodeHexString((byte[]) holderPicture.get("raw")));
 
-            final PtEidV2Pic citizenPicture = new PtEidV2Pic();
-            citizenPicture.decode(new ByteArrayInputStream((byte[]) holderPicture.get("raw")));
-//            System.out.println(citizenPicture);
-            final byte[] octets = citizenPicture.getBiometricInformationTemplateGroupTemplate()
-                    .getFirstBiometricInformationTemplate()
-                    .getBiometricData()
-                    .value;
-            System.out.println(octets.length + " bytes");
-//            46 = PTEIDNG_FIELD_ID_LEN_FACIALRECHDR + PTEIDNG_FIELD_ID_LEN_FACIALINFO + PTEIDNG_FIELD_ID_LEN_IMAGEINFO
-//            FileUtils.writeByteArrayToFile(new File("/home/bnazare/foo.jp2"), octets, 46, octets.length - 46);
+            final byte[] picture = (byte[]) holderPicture.get("picture");
+            // System.out.println(Hex.encodeHexString(picture));
+            System.out.println(picture.length + " bytes");
+
+            // FileUtils.writeByteArrayToFile(new File("/home/bnazare/foo.jp2"), picture);
             System.out.println();
 
             final byte[] dataToSign = new byte[1000];

@@ -27,7 +27,8 @@
 
 package at.gv.egiz.smcc;
 
-import static java.util.Collections.singletonMap;
+import static at.gv.egiz.smcc.PtEidV2Utils.parseCitizenData;
+import static at.gv.egiz.smcc.PtEidV2Utils.parseCitizenPicture;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -140,25 +141,24 @@ public class PtEidV2Card extends AbstractSignatureCard {
             throws SignatureCardException {
         Map<CardDataSet, Map<String, ?>> result = new EnumMap<CardDataSet, Map<String, ?>>(CardDataSet.class);
 
-        for (CardDataSet dataset : datasets) {
-            switch (dataset) {
-                case HOLDER_DATA:
-                    byte[] citizenData;
-                    citizenData = getCitizenData(keyboxName, pinGUI);
-//                    PtEidCitizenData pteid_id = PtEidCitizenData.parseId(citizenData);
-                    result.put(CardDataSet.HOLDER_DATA, singletonMap("raw", citizenData));
-
-                    break;
-                case HOLDER_ADDRESS:
-                    // not present in PtEid v2
-                    throw new UnsupportedOperationException("Not implemented.");
-                case HOLDER_PICTURE:
-                    byte[] citizenPicture = getCitizenPicture(keyboxName, pinGUI);
-//                    PtEidPic pteid_pic = PtEidPic.parsePic(citizenPicture);
-                    result.put(CardDataSet.HOLDER_PICTURE, singletonMap("raw", citizenPicture));
-
-                    break;
+        try {
+            for (CardDataSet dataset : datasets) {
+                switch (dataset) {
+                    case HOLDER_DATA:
+                        final byte[] citizenData = getCitizenData(keyboxName, pinGUI);
+                        result.put(CardDataSet.HOLDER_DATA, parseCitizenData(citizenData));
+                        break;
+                    case HOLDER_PICTURE:
+                        final byte[] citizenPicture = getCitizenPicture(keyboxName, pinGUI);
+                        result.put(CardDataSet.HOLDER_PICTURE, parseCitizenPicture(citizenPicture));
+                        break;
+                    case HOLDER_ADDRESS:
+                        // not present in PtEid v2
+                        throw new UnsupportedOperationException("Not implemented.");
+                }
             }
+        } catch (IOException e) {
+            throw new SignatureCardException("Failed to parse card data.", e);
         }
 
         return result;
