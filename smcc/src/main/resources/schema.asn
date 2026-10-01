@@ -1,0 +1,63 @@
+PtEidV2 DEFINITIONS IMPLICIT TAGS ::=
+BEGIN
+
+PtEidV2CitizenData ::= [APPLICATION 13] IMPLICIT SEQUENCE {
+	deliveryEntity [PRIVATE 0] IMPLICIT PrintableString,
+	country [PRIVATE 1] IMPLICIT PrintableString,
+	documentType [PRIVATE 2] IMPLICIT PrintableString,
+	cardNumber [PRIVATE 3] IMPLICIT PrintableString,
+	cardVersion [PRIVATE 4] IMPLICIT PrintableString,
+	deliveryDate [PRIVATE 5] IMPLICIT PrintableString,
+	locale [PRIVATE 6] IMPLICIT PrintableString,
+	validityDate [PRIVATE 7] IMPLICIT PrintableString,
+	name [PRIVATE 8] IMPLICIT PrintableString,
+	firstname [PRIVATE 9] IMPLICIT PrintableString,
+	sex [PRIVATE 10] IMPLICIT PrintableString,
+	nationality [PRIVATE 11] IMPLICIT PrintableString,
+	birthDate [PRIVATE 12] IMPLICIT PrintableString,
+	height [PRIVATE 13] IMPLICIT PrintableString,
+	opt1 [PRIVATE 14] IMPLICIT PrintableString OPTIONAL,
+	opt2 [PRIVATE 15] IMPLICIT PrintableString OPTIONAL,
+	numBI [PRIVATE 16] IMPLICIT PrintableString,
+	nameFather [PRIVATE 17] IMPLICIT PrintableString,
+	firstnameFather [PRIVATE 18] IMPLICIT PrintableString,
+	nameMother [PRIVATE 19] IMPLICIT PrintableString,
+	firstnameMother [PRIVATE 20] IMPLICIT PrintableString,
+	numNIF [PRIVATE 21] IMPLICIT PrintableString,
+	numSS [PRIVATE 22] IMPLICIT PrintableString,
+	numSNS [PRIVATE 23] IMPLICIT PrintableString,
+	notes [PRIVATE 24] IMPLICIT PrintableString,
+	publicKey [APPLICATION 73] IMPLICIT EcPublicKey
+}
+
+EcPublicKey ::= SEQUENCE {
+    curveIdentifier IMPLICIT OBJECT IDENTIFIER,
+    p [1] IMPLICIT OCTET STRING,
+    a [2] IMPLICIT OCTET STRING,
+    b [3] IMPLICIT OCTET STRING,
+    g [4] IMPLICIT OCTET STRING,
+    n [5] IMPLICIT OCTET STRING,
+    q [6] IMPLICIT OCTET STRING,
+    cofactor [7] IMPLICIT OCTET STRING
+}
+
+PtEidV2Pic ::= [APPLICATION 21] IMPLICIT SEQUENCE {
+    biometricInformationTemplateGroupTemplate [APPLICATION 97] IMPLICIT SEQUENCE {
+        numberOfInstancesOfThisTypeOfBiometric INTEGER,
+        firstBiometricInformationTemplate [APPLICATION 96] IMPLICIT SEQUENCE {
+            biometricHeaderTemplate [1] IMPLICIT SEQUENCE {
+                icaoHeaderVersion [1] IMPLICIT INTEGER OPTIONAL,
+                biometricType [2] IMPLICIT INTEGER OPTIONAL,
+                biometricSubtype [3] IMPLICIT INTEGER OPTIONAL,
+                creationDateAndTime [4] IMPLICIT INTEGER OPTIONAL,
+                validityPeriod [5] IMPLICIT INTEGER OPTIONAL,
+                creatorOfBiometricReferenceData [6] IMPLICIT INTEGER OPTIONAL,
+                formatOwner [7] IMPLICIT INTEGER,
+                formatType [8] IMPLICIT INTEGER
+            },
+            biometricData [APPLICATION 46] IMPLICIT OCTET STRING
+        }
+    }
+}
+
+END

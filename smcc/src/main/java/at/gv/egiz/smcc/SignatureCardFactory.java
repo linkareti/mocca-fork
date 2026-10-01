@@ -69,14 +69,14 @@ public class SignatureCardFactory {
 		/**
 		 * Creates a new SupportedCard instance with the given ATR pattern and
 		 * mask und the corresponding implementation class.
-		 * 
+		 *
 		 * @param atrPattern
 		 *            the ATR pattern
 		 * @param atrMask
 		 *            the ATR mask
 		 * @param implementationClass
 		 *            the name of the implementation class
-		 * 
+		 *
 		 * @throws NullPointerException
 		 *             if <code>atrPattern</code> or <code>atrMask</code> is
 		 *             <code>null</code>.
@@ -98,7 +98,7 @@ public class SignatureCardFactory {
 		/**
 		 * Creates a new SupportedCard instance with the given ATR pattern and
 		 * mask and the corresponding implementation class.
-		 * 
+		 *
 		 * @param atrPattern
 		 *            the ATR pattern
 		 * @param atrSubPattern
@@ -107,7 +107,7 @@ public class SignatureCardFactory {
 		 *            the ATR mask
 		 * @param implementationClass
 		 *            the name of the implementation class
-		 * 
+		 *
 		 * @throws NullPointerException
 		 *             if <code>atrPattern</code> or <code>atrMask</code> is
 		 *             <code>null</code>.
@@ -125,10 +125,10 @@ public class SignatureCardFactory {
 		/**
 		 * Returns true if the given ATR matches the ATR pattern and mask this
 		 * SupportedCard object.
-		 * 
+		 *
 		 * @param atr
 		 *            the ATR
-		 * 
+		 *
 		 * @return <code>true</code> if the given ATR matches the ATR pattern
 		 *         and mask of this SupportedCard object, or <code>false</code>
 		 *         otherwise.
@@ -159,10 +159,10 @@ public class SignatureCardFactory {
 		/**
 		 * Returns true if the historical bytes of the given ATR contain the
 		 * historical bytes pattern of this SupportedCard object.
-		 * 
+		 *
 		 * @param atr
 		 *            the ATR
-		 * 
+		 *
 		 * @return <code>true</code> if the historical bytes of the given ATR
 		 *         contain the historical bytes pattern of this SupportedCard
 		 *         object, or <code>false</code> otherwise.
@@ -433,33 +433,33 @@ public class SignatureCardFactory {
 		// Cypriotic EID
 		supportedCards.add(new SupportedCard(
 				// ATR [3B:DD:18:00:81:31:FE.45:80:F9:A0:00:00:00:77:01:08:00:07::90:00:FE]
-				new byte[] { (byte) 0x3b, (byte) 0xdd, (byte) 0x18, 
-						(byte) 0x00, (byte) 0x81, (byte) 0x31, (byte) 0xfe, 
+				new byte[] { (byte) 0x3b, (byte) 0xdd, (byte) 0x18,
+						(byte) 0x00, (byte) 0x81, (byte) 0x31, (byte) 0xfe,
 						(byte) 0x45, (byte) 0x80, (byte) 0xf9, (byte) 0xa0,
 						(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x77,
 						(byte) 0x01, (byte) 0x08, (byte) 0x00, (byte) 0x07,
 						(byte) 0x90, (byte) 0x00, (byte) 0xfe},
 				// mas (ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff)
-				new byte[] { (byte) 0xff, (byte) 0xff, (byte) 0xff, 
-						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, 
+				new byte[] { (byte) 0xff, (byte) 0xff, (byte) 0xff,
+						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
 						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
 						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
 						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
 						(byte) 0xff, (byte) 0xff, (byte) 0xff},
-				"at.gv.egiz.smcc.CypriotEID"));	
-		
+				"at.gv.egiz.smcc.CypriotEID"));
+
 		// Gemalto .NET V2.0
 		supportedCards.add(new SupportedCard(
 				// ATR [3B:16:96:41:73:74:72:69:64]
-				new byte[] { (byte) 0x3b, (byte) 0x16, (byte) 0x96, 
-						(byte) 0x41, (byte) 0x73, (byte) 0x74, (byte) 0x72, 
+				new byte[] { (byte) 0x3b, (byte) 0x16, (byte) 0x96,
+						(byte) 0x41, (byte) 0x73, (byte) 0x74, (byte) 0x72,
 						(byte) 0x69, (byte) 0x64},
 				// mas (ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff)
-				new byte[] { (byte) 0xff, (byte) 0xff, (byte) 0xff, 
-						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, 
+				new byte[] { (byte) 0xff, (byte) 0xff, (byte) 0xff,
+						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
 						(byte) 0xff, (byte) 0xff},
-				"at.gv.egiz.smcc.GemaltoNetV2_0Card"));	
-		
+				"at.gv.egiz.smcc.GemaltoNetV2_0Card"));
+
 		// ES DNIe
 		supportedCards.add(new SupportedCard(
 		// ATR [3b:7f:38:00:00:00:6a:44:4e:49:65:20:02:4c:34:01:13:03:90:00]
@@ -945,7 +945,7 @@ public class SignatureCardFactory {
 						(byte) 0x00, (byte) 0xff, (byte) 0xff, (byte) 0xff,
 						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
 						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
-						(byte) 0xff, (byte) 0xff, (byte) 0xff },						
+						(byte) 0xff, (byte) 0xff, (byte) 0xff },
 				"at.gv.egiz.smcc.EstEIDCard"));
 
 		// ATR for EstEID v.1.0 realised on Micardo Public 3.0 - Cold ATR
@@ -970,10 +970,10 @@ public class SignatureCardFactory {
 						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
 						(byte) 0xff, (byte) 0xff, (byte) 0xff },
 				"at.gv.egiz.smcc.EstEIDCard"));
-		
+
 		// ATR for EstEID v.1.0 realised on Micardo Public 2.1 - Cold ATR
 		// ATR for EstEID v.1.1 for DigiID realised on MultoOS by KeyCorp on IE4 - Warm ATR
-		supportedCards.add(new SupportedCard(				
+		supportedCards.add(new SupportedCard(
 				// (3b:fe:94:00:ff:80:b1:fa:45:1f:03:45:73:74:45:49:44:20:76:65:72:20:31:2e:30:43)
 				new byte[] { (byte) 0x3b, (byte) 0xfe, (byte) 0x94,
 						(byte) 0x00, (byte) 0xff, (byte) 0x80, (byte) 0xb1,
@@ -1065,7 +1065,7 @@ public class SignatureCardFactory {
 						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
 						(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
 						(byte) 0xff }, "at.gv.egiz.smcc.EstEIDCard"));
-		
+
 		supportedCards.add(new SupportedCard(
 				// ATR (3B:7D:95:00:00:80:31:80:65:B0:83:11:C0:A9:83:00:90:00 -
 				// 00:00:00:00)
@@ -1141,6 +1141,26 @@ public class SignatureCardFactory {
 				"at.gv.egiz.smcc.PtEidCard"));
 
 		supportedCards.add(new SupportedCard(
+                //ATR: (3b:ff:96:00:00:81:31:fe:43:80:31:80:65:b0:85:04:01:20:12:0f:ff:82:90:00:d0)
+                new byte[]{(byte) 0x3b, (byte) 0xff, (byte) 0x96,
+                        (byte) 0x00, (byte) 0x00, (byte) 0x81, (byte) 0x31,
+                        (byte) 0xfe, (byte) 0x43, (byte) 0x80, (byte) 0x31,
+                        (byte) 0x80, (byte) 0x65, (byte) 0xb0, (byte) 0x85,
+                        (byte) 0x05, (byte) 0x00, (byte) 0x11, (byte) 0x12,
+                        (byte) 0x0f, (byte) 0xff, (byte) 0x82, (byte) 0x90,
+                        (byte) 0x00, (byte) 0xe1},
+                // mask
+                // (ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff)
+                new byte[]{(byte) 0xff, (byte) 0xff, (byte) 0xff,
+                        (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
+                        (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
+                        (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
+                        (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
+                        (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff,
+                        (byte) 0xff, (byte) 0xff},
+                "at.gv.egiz.smcc.PtEidV2Card"));
+
+		supportedCards.add(new SupportedCard(
 				// SwissSign ATR
 				// 3b:fa:18:00:02:c1:0a:31:fe:58:4b:53:77:69:73:73:53:69:67:6e:89
 				new byte[] { (byte) 0x3b, (byte) 0xfa, (byte) 0x18,
@@ -1195,15 +1215,15 @@ public class SignatureCardFactory {
 
 	/**
 	 * Creates a SignatureCard instance with the given smart card.
-	 * 
+	 *
 	 * @param card
 	 *            the smart card, or <code>null</code> if a software card should
 	 *            be created
 	 * @param cardTerminal
 	 *            TODO
-	 * 
+	 *
 	 * @return a SignatureCard instance
-	 * 
+	 *
 	 * @throws CardNotSupportedException
 	 *             if no implementation of the given <code>card</code> could be
 	 *             found

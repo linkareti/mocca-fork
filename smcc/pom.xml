@@ -20,9 +20,52 @@
           <debug>false</debug>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.6.3</version>
+        <executions>
+          <execution>
+            <id>gen-asn1-pteidv2</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <includeProjectDependencies>false</includeProjectDependencies>
+          <includePluginDependencies>true</includePluginDependencies>
+          <mainClass>com.beanit.asn1bean.compiler.Compiler</mainClass>
+          <commandlineArgs>-f ${project.basedir}/src/main/resources/schema.asn -o ${project.basedir}/target/generated-sources/asn1bean -p at.gv.egiz.smcc</commandlineArgs>
+          <sourceRoot>${project.basedir}/target/generated-sources/asn1bean</sourceRoot>
+        </configuration>
+        <dependencies>
+              <dependency>
+                <groupId>com.beanit</groupId>
+                <artifactId>asn1bean-compiler</artifactId>
+                <version>1.14.0</version>
+              </dependency>
+        </dependencies>
+      </plugin>
     </plugins>
   </build>
   <dependencies>
+    <dependency>
+      <groupId>com.beanit</groupId>
+      <artifactId>asn1bean</artifactId>
+      <version>1.14.0</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.18.0</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.18.0</version>
+    </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
