@@ -51,12 +51,12 @@
       <repository>
           <id>linkare-thirdparty</id>
           <name>Linkare Releases Repository</name>
-          <url>https://nexus.linkare.com/content/repositories/thirdparty</url>
+          <url>https://nexus.linkare.com/nexus/content/repositories/thirdparty/</url>
       </repository>
       <snapshotRepository>
           <id>linkare-snap-repo</id>
           <name>Linkare Snapshots Repository</name>
-          <url>https://nexus.linkare.com/content/repositories/snapshots</url>
+          <url>https://nexus.linkare.com/nexus/content/repositories/snapshots/</url>
       </snapshotRepository>
   </distributionManagement>
 </project>

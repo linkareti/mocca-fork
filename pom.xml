@@ -10,7 +10,7 @@
   <url>http://joinup.ec.europa.eu/site/mocca/</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    
+
     <jaxb.version>2.3.0</jaxb.version>
     <activation.version>1.1.1</activation.version>
   </properties>
@@ -80,10 +80,8 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <groupId>org.apache.maven.plugins</groupId>
           <version>3.7.0</version>
-          <configuration>            
-            <fork>true</fork> 
-            <executable>${env.JAVA_HOME}\bin\javac.exe</executable> 
-            <compilerVersion>9</compilerVersion> 
+          <configuration>
+            <fork>true</fork>
             <source>1.7</source>
             <target>1.7</target>
             <verbose>true</verbose>
@@ -332,7 +330,7 @@
       <dependency>
         <groupId>iaik.moa</groupId>
         <artifactId>iaik_jce_full_signed</artifactId>
-        <version>5.52_MOA</version>
+        <version>5.62_MOA</version>
         <scope>compile</scope>
       </dependency>
       <dependency>
@@ -471,7 +469,7 @@
         <type>jar</type>
         <scope>compile</scope>
       </dependency>
-     
+
      <!-- For testing -->
 	<dependency>
     	<groupId>org.glassfish.metro</groupId>
@@ -483,7 +481,7 @@
     	<groupId>com.sun.xml.bind</groupId>
     	<artifactId>jaxb-impl</artifactId>
     	<version>${jaxb.version}</version>
-    	<scope>test</scope>    	
+    	<scope>test</scope>
 	</dependency>
 	<dependency>
     	<groupId>com.sun.xml.bind</groupId>
@@ -491,8 +489,8 @@
     	<version>${jaxb.version}</version>
     	<scope>test</scope>
 	</dependency>
-      
-      
+
+
     </dependencies>
   </dependencyManagement>
   <distributionManagement>

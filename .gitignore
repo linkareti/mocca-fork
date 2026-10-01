@@ -8,3 +8,4 @@ pom.xml.releaseBackup
 BKUCertificates/META-INF/
 release.properties
 
+.idea/
